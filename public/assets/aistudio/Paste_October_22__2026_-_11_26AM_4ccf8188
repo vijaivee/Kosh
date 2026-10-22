@@ -1,0 +1,1352 @@
+# MASTER DEVELOPMENT PROMPT: Global Item Creation System
+## React + FastAPI + RBAC + Multi-Branch + SAP Business One HANA
+
+### 1. Role and Objective
+
+Act as a Principal Software Architect, Senior React Engineer, Enterprise Security Architect, and SAP Business One Integration Specialist.
+
+Design and implement a production-ready, web-based **Global Item Creation and Governance System** for a multi-branch manufacturing organization.
+
+The application must provide a centralized Item Master, configurable item classification, automatic Item Code and Description generation, maker-checker approvals, strict Role-Based Access Control (RBAC), branch-aware user management, complete audit trails, and configurable fileds and tables , controlled integration with SAP Business One running on SAP B1 HANA.
+In future we will host this this into Cloud, so Email based 2FA and Security Features need to be deployeed with Enable and Disable function 
+
+
+# KOSH INNOVATIONS — CORPORATE BRANDING & SUBDOMAIN REQUIREMENTS
+
+Update the Kosh Global Item Creation System to follow the official corporate identity and professional standards of:
+
+Corporate website: https://koshinnovations.com/
+
+Proposed application URL: https://itemmaster.koshinnovations.com/
+
+The subdomain is proposed and must be confirmed with the company's DNS/IT administrator before deployment.
+
+## 1. Official Corporate Identity
+
+Before implementing the UI:
+
+1. Inspect the official Kosh Innovations website, including its header, footer, logo, typography, navigation, buttons, backgrounds, and imagery.
+2. Identify and reuse the genuine Kosh Innovations logo and favicon from authorized website assets.
+3. Inspect the website's available CSS, design tokens, and image assets to determine actual corporate colors and typography.
+4. Use the genuine logo files instead of redrawing, approximating, or generating a replacement logo.
+5. Preserve the logo's aspect ratio, original colors, and visual integrity.
+6. If the original logo or exact brand colors cannot be retrieved, ask for the approved brand assets or use clearly identified temporary design tokens. Do not invent official brand color values.
+7. Do not copy unrelated customer logos or promotional imagery into the internal application.
+
+Official brand reference:
+https://koshinnovations.com/
+
+## 2. Corporate Design Language
+
+The application must look like an internal enterprise system belonging to Kosh Innovations, not a generic AI-generated admin template.
+
+Reflect the company's manufacturing, engineering, quality, precision, innovation, sustainability, and operational-excellence culture.
+
+Use:
+- Clean enterprise layout.
+- Consistent spacing and alignment.
+- Clear typography and hierarchy.
+- Restrained corporate colors based on verified brand assets.
+- White or neutral surfaces where appropriate.
+- Accessible contrast.
+- Subtle borders and shadows.
+- Professional tables, filters, forms, and status indicators.
+- Consistent iconography.
+- Responsive layouts for desktop, laptop, and tablet.
+- Practical information density suitable for manufacturing and master-data operations.
+
+Avoid:
+- Excessive gradients.
+- Neon colors.
+- Decorative animations.
+- Unnecessary glassmorphism.
+- Oversized dashboard cards.
+- Consumer-shopping visual styles.
+- Unrelated stock photography.
+- Invented logos or unofficial brand claims.
+
+## 3. Branding Implementation
+
+Create a centralized theme system using CSS variables or design tokens.
+
+Define reusable tokens for:
+- Primary brand color.
+- Secondary brand color.
+- Accent color.
+- Page background.
+- Surface background.
+- Main text.
+- Muted text.
+- Borders.
+- Success.
+- Warning.
+- Error.
+- Information.
+- Focus indicators.
+- Button states.
+- Table states.
+
+Use verified website colors where available. If exact values cannot be confirmed, make the tokens easy to replace when the approved brand palette is supplied.
+
+Do not scatter hardcoded colors throughout components.
+
+Create reusable components for:
+- Corporate logo.
+- Application header.
+- Navigation sidebar.
+- Breadcrumbs.
+- Page titles.
+- Primary and secondary buttons.
+- Searchable dropdowns.
+- Data tables.
+- Form sections.
+- Status badges.
+- Alerts.
+- Confirmation dialogs.
+- Empty states.
+- Loading states.
+- Error states.
+
+The theme must be consistent across all application screens.
+
+## 4. Application Header and Layout
+
+Display the official Kosh Innovations logo in the application header.
+
+Application title:
+**Kosh Global Item Creation System**
+
+Subtitle:
+**Global Item Master & Governance**
+
+Include:
+- Organization selector where authorized.
+- Branch/plant selector.
+- Current user's display name.
+- Role and access context.
+- Notifications.
+- Profile and secure logout.
+- Breadcrumb navigation.
+
+The logo must link to the application's authenticated home page, not to an unrelated external destination.
+
+Use a professional sidebar with permission-aware navigation:
+
+1. Dashboard.
+2. Item Creation.
+3. Global Item Master.
+4. My Requests.
+5. Approval Inbox.
+6. Classification Masters.
+7. Item Code Rules.
+8. Item Description Rules.
+9. Rule Version History.
+10. Branch Item Availability.
+11. Organization & Branch Management.
+12. User & Role Administration.
+13. SAP Integration Monitor.
+14. Import / Export.
+15. Audit Logs.
+16. System Settings.
+
+Display only the navigation options permitted by the authenticated user's authorization. Enforce permissions on the backend as well.
+
+## 5. Dashboard Design
+
+Build a corporate operational dashboard showing:
+- Total approved global items.
+- Draft item requests.
+- Pending approvals.
+- Returned requests.
+- Approved items awaiting SAP creation.
+- SAP integration failures.
+- Recent authorized activity.
+- Branch-level item statistics.
+- Item creation trends.
+
+Use real database data. Do not fabricate metrics or show hardcoded sample counts in production.
+
+Keep the dashboard compact, useful, and appropriate for an enterprise manufacturing environment.
+
+## 6. Item Creation User Experience
+
+The Item Creation screen is a core business transaction, not a marketing page.
+
+Use a clear, structured form with:
+- Category.
+- Material.
+- Type.
+- Material Form.
+- Process.
+- Colour.
+- Manufacturer / Brand.
+- Dimensions.
+- Part / Model Number.
+- Rating / Size / Thickness / GSM / Cavity / Capacity.
+- Specification / Key Specification.
+
+Display the generated Item Code and Item Description prominently as read-only previews, with a clear indication of whether a code is provisional or permanently allocated.
+
+Use conditional fields driven by the active category configuration.
+
+Provide clear validation, Save Draft, Validate, Submit for Approval, and Cancel actions.
+
+## 7. Configurable Rule Builder Design
+
+Provide dedicated, polished administration screens for Item Code and Item Description rules.
+
+Administrators must be able to:
+- Configure code components.
+- Arrange component order.
+- Define category-specific rules.
+- Configure conditional fields and separators.
+- Configure sequence scope and padding.
+- Configure description templates.
+- Preview outputs.
+- Test proposed rules.
+- Compare versions.
+- Submit changes for approval.
+- Activate and roll back approved versions.
+
+Use a visual rule editor with a readable component sequence, test-data panel, generated-output preview, and validation messages.
+
+All rule configuration must persist in the backend database. Do not implement fake controls or hardcode rules into React components.
+
+## 8. Corporate Quality Standards
+
+Apply professional enterprise software standards:
+- Consistent form labels and validation.
+- Accessible keyboard navigation.
+- Visible focus states.
+- Appropriate contrast.
+- Responsive tables.
+- Search, sorting, filtering, and pagination.
+- Confirmation for sensitive operations.
+- Helpful error messages.
+- Consistent date, time, and number formats.
+- No horizontal overflow at supported screen sizes.
+- Loading, empty, and failure states for every data-driven page.
+
+Use WCAG 2.2 AA as the accessibility target.
+
+## 9. Security and Company Data
+
+This is an internal corporate master-data application.
+
+- Enforce authentication and backend RBAC.
+- Enforce organization and branch data isolation.
+- Do not expose company secrets in frontend code.
+- Use HTTPS in production.
+- Use secure session management.
+- Apply CSRF protections where required.
+- Use appropriate security headers and content security policy.
+- Record critical administrative and master-data operations in an audit trail.
+- Never display sensitive SAP credentials or tokens.
+- Do not expose production item creation to unauthenticated users.
+- Use approved company authentication where available.
+
+Do not treat a subdomain or a hidden navigation menu as a security control.
+
+## 10. Subdomain and Deployment
+
+Prepare the application for deployment at Prodution: 
+
+https://my.koshinnovations.com/  
+
+For UAT : http://localhost/mykoshinnovations
+
+Do not assume DNS or hosting access is already available.
+
+Produce a deployment guide that covers:
+
+1. Confirmation of subdomain ownership and DNS administration.
+2. Hosting target and server requirements.
+3. DNS record configuration appropriate to the chosen hosting setup.
+4. HTTPS/TLS certificate configuration and renewal.
+5. Reverse proxy configuration.
+6. Frontend build and backend service deployment.
+7. Production database provisioning.
+8. Environment variables and secret management.
+9. Database migrations and backup strategy.
+10. Logging, monitoring, and health checks.
+11. Authentication and access restrictions.
+12. Rollback and disaster recovery.
+
+Keep application configuration separate from source code.
+
+If the final hosting environment is on-premises, support deployment on the company's authorized Linux or Windows infrastructure. Do not make Google Cloud, Firebase, or another commercial cloud service a mandatory dependency without explicit approval.
+
+Use a staging environment before production deployment.
+
+## 11. Deliverables
+
+Deliver:
+- Complete React frontend.
+- Backend API and database models.
+- Verified or replaceable corporate theme tokens.
+- Genuine logo integration.
+- Responsive application shell.
+- Working Item Creation form.
+- Working configurable Item Code and Description rule builders.
+- RBAC and multi-branch UI.
+- Automated tests.
+- Production build.
+- Deployment instructions for the proposed subdomain.
+- A list of any brand assets, DNS details, credentials, or integration access still required.
+
+## 12. Execution Instructions
+
+First inspect the official website and extract the available brand assets and actual design tokens.
+
+Then update the application shell and theme before implementing individual pages.
+
+Preserve all existing business requirements, including configurable Item Code rules, configurable Item Description rules, RBAC, multi-branch access, maker-checker approvals, audit trails, and SAP Business One integration.
+
+Do not remove working features while changing the visual design.
+
+Finish by running the available build and tests and showing a preview of the branded dashboard and Item Creation screen.
+
+Do not build a simple CRUD application or a static UI prototype. Deliver a secure, modular, tested, deployment-ready application with working backend APIs, database persistence, authorization enforcement, and integration interfaces. Deliver Full code in Zip File
+
+### 2. Technology Stack
+
+Use the following stack unless a documented technical constraint requires a change:
+
+**Frontend**
+- React with TypeScript and Vite.
+- Tailwind CSS for responsive enterprise UI.
+- React Router for navigation.
+- TanStack Query for API state and caching.
+- React Hook Form with Zod validation.
+- Accessible component library such as shadcn/ui.
+- Server-side pagination, filtering, sorting, and searchable dropdowns.
+
+**Backend**
+- Python FastAPI.
+- Pydantic for request and response validation.
+- SQLAlchemy 2.x.
+- Alembic for database migrations.
+- PostgreSQL as the recommended application database.
+- REST APIs with OpenAPI documentation.
+- Background worker and durable job mechanism for SAP synchronization.
+
+**Security**
+- Short-lived access tokens and securely managed refresh sessions.
+- Prefer secure, HttpOnly, SameSite cookies for browser sessions.
+- Password hashing with Argon2id or an equivalent approved password hashing algorithm.
+- CSRF protection when cookie-based authentication is used.
+- Configurable session expiration, account lockout, and rate limiting.
+- Secrets stored outside source code.
+- TLS for all production traffic.
+
+Do not connect the React browser directly to the database or SAP HANA. All privileged operations must pass through authorized backend services.
+
+### 3. Multi-Branch and Global Governance Architecture
+
+Support a centralized organization with multiple branches, plants, warehouses, and departments.
+
+Implement the following hierarchy:
+
+Organization → Business Unit (optional) → Branch → Plant → Warehouse.
+
+Create two separate concepts:
+
+1. **Global Item Master:** The authoritative, organization-wide item definition.
+2. **Branch Item Availability:** The branches or plants where an approved item is permitted, stocked, procured, manufactured, or sold.
+
+An item must have a unique global identity independent of its branch.
+
+Every user must have an explicit organization scope and assigned branch/plant permissions. A user may belong to multiple branches with different roles in each branch.
+
+Support:
+- Global users who can access authorized organization-wide records.
+- Branch users who can access only their permitted branch data.
+- Cross-branch users with explicitly granted access to selected branches.
+- Branch-specific item activation and deactivation without duplicating the global Item Master.
+- A controlled global item request process initiated by branch users.
+- Central governance approval before an item becomes globally approved.
+- Branch-specific purchasing, inventory, and production configuration where appropriate.
+
+Never trust a branch ID supplied by the frontend without validating it against the authenticated user's permissions.
+
+### 4. RBAC and Authorization Model
+
+Implement RBAC with explicit organization and branch scopes.
+
+Create these initial roles:
+
+**Platform Administrator**
+- Manage platform configuration, organizations, and technical settings.
+- Cannot silently bypass audit logging.
+
+**Organization Administrator**
+- Manage organization-wide users, roles, branches, master-data configuration, and governance settings.
+- Assign global privileges only when authorized.
+
+**Global Item Master Administrator**
+- Maintain approved classification masters and global item definitions.
+- Review global item requests and manage controlled corrections.
+
+**Item Creator / Maker**
+- Create draft item requests.
+- Edit permitted drafts.
+- Submit items for approval.
+- View permitted items and request statuses.
+- Cannot approve their own requests.
+
+**Branch Item Coordinator**
+- Manage branch item requests and branch activation.
+- Access only assigned branches unless separately authorized.
+
+**Item Approver / Checker**
+- Approve, reject, or return submissions within assigned approval scope.
+- Cannot approve their own submissions.
+- Cannot approve requests outside their authorized organization, branch, or category scope.
+
+**Master Data Auditor**
+- Read authorized records, approval histories, integration results, and audit reports.
+- Cannot modify master data.
+
+**Integration Service Account**
+- Perform only specifically authorized SAP synchronization operations.
+- Must not have interactive administrator privileges.
+
+**Read-Only User**
+- View permitted records and reports without write access.
+
+Implement permissions as granular capabilities, such as:
+- `item.read`
+- `item.create`
+- `item.update_draft`
+- `item.submit`
+- `item.approve`
+- `item.reject`
+- `item.activate_branch`
+- `item.export`
+- `classification.manage`
+- `user.manage`
+- `role.manage`
+- `branch.manage`
+- `audit.read`
+- `integration.manage`
+
+Support organization-level, branch-level, and category-level permission assignments.
+
+Enforce authorization in FastAPI dependencies and service-layer business logic. Frontend route guards and hidden buttons are usability controls, not security boundaries.
+
+Use deny-by-default authorization. Reject unauthorized requests with appropriate HTTP status codes. Record security-relevant access and authorization failures.
+
+### 5. User and Branch Administration
+
+Create administrative screens for:
+- Organizations.
+- Branches and plants.
+- Departments.
+- Users.
+- Roles and permissions.
+- User-to-branch assignments.
+- User-to-role assignments.
+- Temporary access grants with expiry.
+- User activation and deactivation.
+- Password reset and session revocation.
+- Login history and security audit events.
+
+Allow one user to work across multiple branches, subject to assigned permissions.
+
+Provide a branch selector in the application header. Switching branches must revalidate access on the backend and refresh branch-scoped queries.
+
+Display the active organization, branch, user role, and authorization scope clearly.
+
+Prevent users from granting themselves privileges or assigning permissions they are not authorized to delegate.
+
+### 6. Item Classification Masters
+
+Implement configurable, database-backed classification masters. Do not hardcode dropdown values in React.
+
+Initial classification dimensions:
+- Category
+- Material
+- Type
+- Material Form
+- Process
+- Colour
+- Manufacturer / Brand
+
+Support additional configurable dimensions in future versions.
+
+Seed these initial categories:
+
+| Code | Category |
+|---|---|
+| FG | Finished Goods |
+| SF | Semi-Finished Goods |
+| RM | Raw Materials |
+| BO | Bought-Out Components |
+| PM | Packaging Materials |
+| MA | Maintenance / Spares |
+| CO | Consumables |
+| SV | Services |
+| SC | Runner / Regrind / Scrap |
+| TR | Trading Item |
+| CP | Capital Equipment |
+| MO | Moulds, Dies and Tooling |
+| HF | Housekeeping and Facility Supplies |
+
+Use two-character codes where appropriate, but allow configurable code lengths and reserved codes.
+
+Each master record must contain:
+- Internal ID.
+- Code.
+- Name.
+- Description.
+- Active/inactive status.
+- Effective dates where needed.
+- Created by and created timestamp.
+- Updated by and updated timestamp.
+- Optional parent classification.
+- Organization or global scope.
+
+Prevent duplicate codes within their defined scope. Do not delete master values referenced by existing items; deactivate them instead.
+
+Support bulk import with validation, duplicate detection, preview, and error reporting.
+
+### 7. Item Creation Interface
+
+Build an enterprise-quality Item Creation page with:
+- Searchable dropdowns for Category, Material, Type, Material Form, Process, Colour, and Manufacturer/Brand.
+- User-entered fields for Dimensions, Part/Model Number, Rating/Size/Thickness/GSM/Cavity/Capacity, and Specification/Key Specification.
+- Optional additional fields configured by category.
+- Live Item Code preview.
+- Live Item Description preview.
+- Save Draft, Validate, Submit for Approval, and Cancel actions.
+- A clear validation summary.
+- Draft autosave where safe.
+- Duplicate-item detection before submission.
+- Responsive layout suitable for desktop and tablet.
+
+Do not require Grade, Revision, Tool ID, or separate Product/Part/Component/Item Name fields in the initial form. Make them optional configurable extensions rather than mandatory inputs.
+
+Manufacturer/Brand must be selected from a centrally maintained master where applicable.
+
+### 8. Automatic Item Code Generation
+
+Build a configurable Item Code engine.
+
+Example code format:
+
+`FGPPIMBK0001`
+
+Use the configured category, material, type, material form, process, colour, and sequence components to generate codes.
+
+Important rules:
+- The exact component order and meaning must be configurable.
+- Each code component must be validated against its classification master.
+- Use a database-backed sequence or atomic allocation mechanism.
+- Never use worksheet row numbers, browser-generated counters, timestamps, or `MAX(ItemCode)+1` as the production sequence mechanism.
+- Guarantee uniqueness under concurrent requests and multiple application instances.
+- Reserve or allocate codes transactionally.
+- Handle abandoned drafts and failed approvals according to a documented numbering policy.
+- Do not recycle codes that have already been issued or externally published.
+- Validate the final length against SAP Business One's supported ItemCode constraints.
+- Keep the global Item ID separate from the SAP ItemCode if the governance design requires it.
+- Make the numbering strategy configurable and auditable.
+
+Display the generated code as a preview while clearly indicating whether it is provisional or permanently allocated.
+
+### 9. Automatic Item Description
+
+Generate descriptions based on the selected category and configured field mapping.
+
+Use these initial rules:
+
+- FG: Material – Grade (if enabled) – Product Name – Specification – Colour.
+- SF: Material – Part Name – Dimensions – Revision (if enabled).
+- RM: Material Name – Grade (if enabled) – Colour – Form – Size.
+- BO: Component Name – Manufacturer – Part Number – Rating/Size.
+- PM: Packaging Type – Material – Dimensions – Thickness/GSM.
+- MA: Equipment/Part Name – Manufacturer – Model/Part No. – Rating/Size.
+- CO: Item Name – Brand – Type/Grade – Size.
+- SV: Service Name – Scope – Equipment/Reference.
+- SC: Material/Part Name – Source/Grade – Colour – Form.
+- TR: Product Name – Brand/Manufacturer – Model/Part Number – Key Specification – Size/Rating.
+- CP: Equipment Name – Brand/Manufacturer – Model – Capacity/Rating.
+- MO: Tool Name – Part/Product – Tool Type – Cavity – Tool ID – Revision.
+- HF: Item Name – Brand – Type/Specification – Size/Capacity.
+
+Because some of these fields are intentionally consolidated in the initial form, implement the rules using configurable field mappings and optional category-specific extensions.
+
+Rules:
+- Exclude empty values without leaving extra separators.
+- Normalize whitespace and separator formatting.
+- Enforce configurable description length limits.
+- Show a live preview.
+- Preserve a snapshot of the submitted description and its rule version.
+- Recalculate descriptions only according to defined draft/edit rules.
+- Do not silently overwrite approved descriptions.
+- Record who changed a description and why.
+
+### 10. Workflow and Maker-Checker Approval
+
+Implement the following initial state machine:
+
+`Draft → Submitted → Under Review → Approved → SAP Pending → SAP Created`
+
+Alternative transitions:
+- `Submitted → Returned for Correction`
+- `Under Review → Returned for Correction`
+- `Submitted / Under Review → Rejected`
+- `Returned for Correction → Draft`
+- `SAP Pending → SAP Failed → Retry Pending`
+- `Approved → Cancelled` only when business rules allow it and before prohibited downstream use.
+
+Enforce valid transitions on the server.
+
+Approval requirements:
+- A maker cannot approve their own request.
+- An approver must possess the relevant organization, branch, and category scope.
+- Approval decisions require a timestamp, user identity, comments where appropriate, and a version of the submitted record.
+- Any material change after submission must invalidate the approval and require resubmission.
+- Rejections and returns must include a reason.
+- Support configurable single-step and multi-step approval policies.
+- Prevent duplicate approvals and concurrent conflicting updates.
+- Use optimistic locking or version checks.
+- Notify users of submissions, returns, approvals, rejections, and integration failures.
+- Make notifications configurable and do not expose sensitive data unnecessarily.
+
+### 11. SAP Business One on SAP HANA Integration
+
+Build an isolated SAP integration adapter. Do not mix SAP-specific logic into React components or core item-governance services.
+
+Support an integration approach selected during deployment:
+- SAP Business One Service Layer, where supported and approved; or
+- An authorized server-side integration service using supported SAP interfaces.
+
+Never write directly into SAP system tables to create items.
+
+The integration must:
+1. Validate that the item is approved and eligible for the target SAP company/database.
+2. Map the global item record to SAP Business One fields and UDFs.
+3. Validate required SAP fields, item type, inventory/purchasing/sales flags, units of measure, and relevant accounting/configuration values.
+4. Create the item using supported SAP interfaces.
+5. Store the returned SAP ItemCode and integration reference.
+6. Record request/response metadata and sanitized errors.
+7. Retry transient failures safely.
+8. Prevent duplicate SAP item creation using an idempotency key and reconciliation checks.
+9. Support manual retry by authorized users.
+10. Reconcile local and SAP item statuses.
+
+Use a transactional outbox or equivalent durable job pattern so an approved item cannot be lost between database commit and queue publication.
+
+Store secrets securely. Do not log passwords, access tokens, session cookies, or sensitive payloads. Make company database, environment, and endpoint configuration explicit.
+
+Support separate development, testing, and production SAP environments. Never silently create production items from a test environment.
+
+### 12. Database Design
+
+Create migrations and relational models for at least:
+
+- organizations
+- business_units
+- branches
+- plants
+- warehouses
+- users
+- roles
+- permissions
+- role_permissions
+- user_role_assignments
+- user_branch_assignments
+- user_sessions
+- classification_dimensions
+- classification_values
+- item_code_rules
+- item_sequences
+- global_items
+- item_attribute_values
+- item_branch_settings
+- item_requests
+- item_request_versions
+- approval_policies
+- approval_steps
+- approval_decisions
+- sap_company_configurations
+- sap_item_mappings
+- sap_integration_jobs
+- sap_integration_attempts
+- audit_events
+- notifications
+- import_batches
+- import_errors
+
+Use primary keys, foreign keys, appropriate indexes, unique constraints, check constraints, timestamps, and soft deactivation where needed.
+
+Define whether each entity is global, organization-scoped, or branch-scoped. Include `organization_id` and relevant scope identifiers where applicable.
+
+Prevent cross-organization data leakage. Enforce scope checks in backend queries and authorization services; use database-level row security as an additional control where practical.
+
+### 13. Audit, Compliance, and Data Protection
+
+Record an append-only audit trail for:
+- Login and logout.
+- Failed login and authorization attempts.
+- User and role changes.
+- Branch assignment changes.
+- Item creation and edits.
+- Code allocation.
+- Submission and approval decisions.
+- Master-data changes.
+- SAP requests, responses, retries, and reconciliation.
+- Export and bulk-import activities.
+
+Audit records should capture actor, action, entity, entity ID, organization, branch where relevant, timestamp, correlation ID, outcome, and appropriate before/after change details.
+
+Do not store plaintext passwords, authentication tokens, or unnecessary sensitive information in audit logs.
+
+Provide configurable data-retention and export policies. Protect audit records from unauthorized modification and deletion.
+
+### 14. User Interface and Navigation
+
+Create these pages:
+
+1. Login.
+2. Dashboard.
+3. Item Creation.
+4. Item Master Search.
+5. My Requests.
+6. Approval Inbox.
+7. Item Details and Version History.
+8. Classification Master Administration.
+9. Item Code Rule Configuration.
+10. Organization and Branch Management.
+11. User and Role Management.
+12. Branch Item Availability.
+13. SAP Integration Monitor.
+14. Import/Export Center.
+15. Audit Log Viewer.
+16. System Settings.
+
+Dashboard widgets should be permission-aware and include:
+- Drafts.
+- Pending approvals.
+- Returned requests.
+- Approved items awaiting SAP creation.
+- SAP failures.
+- Branch item counts.
+- Recent authorized activity.
+
+Use clear status indicators, accessible forms, searchable data grids, confirmation dialogs, and actionable error messages.
+
+### 15. API Design
+
+Create versioned endpoints under `/api/v1`.
+
+Provide endpoints for:
+- Authentication and sessions.
+- Organizations and branches.
+- Users, roles, permissions, and assignments.
+- Classification values.
+- Item Code preview and allocation.
+- Item description preview.
+- Draft creation and editing.
+- Validation and submission.
+- Approval and rejection.
+- Item search and details.
+- Branch activation.
+- Bulk import and export.
+- SAP job status, retry, and reconciliation.
+- Audit event search.
+
+Validate inputs using Pydantic. Implement consistent error responses, pagination, filtering, sorting, rate limits, and request correlation IDs.
+
+Document all APIs using OpenAPI.
+
+### 16. Testing Requirements
+
+Implement automated tests for:
+- Authentication and session security.
+- Every role's permitted and forbidden operations.
+- Cross-branch access attempts.
+- Cross-organization access attempts.
+- Self-approval prevention.
+- Approval-scope validation.
+- Concurrent Item Code generation.
+- Duplicate item detection.
+- Description generation and length limits.
+- Workflow transition validation.
+- Concurrent edits and version conflicts.
+- SAP duplicate prevention and retries.
+- Failed integration recovery.
+- Audit logging.
+- Bulk import validation.
+
+Include backend unit and integration tests, frontend component tests, and end-to-end tests for the major workflows.
+
+Use synthetic test data. Do not require production SAP credentials to run the normal development test suite.
+
+### 17. Deployment and Deliverables
+
+Deliver:
+- React frontend source.
+- FastAPI backend source.
+- Database models and Alembic migrations.
+- Seed data for initial roles, permissions, and categories.
+- Configurable Item Code and description rules.
+- SAP integration adapter and mock implementation.
+- Authentication and authorization middleware/dependencies.
+- Automated tests.
+- `.env.example` containing placeholders only.
+- Local development setup instructions.
+- Production deployment and reverse-proxy configuration.
+- Backup, recovery, and database migration instructions.
+- Architecture diagram and data model diagram.
+- API documentation.
+- Security checklist.
+- Role-permission matrix.
+- Sample data and demo accounts for local development only.
+
+The application must run locally without requiring a commercial cloud platform. External email, messaging, or SAP connectivity should be optional integrations, not mandatory dependencies for local development.
+
+### 18. Implementation Approach
+
+Build the system in controlled phases:
+
+**Phase 1:** Architecture, data model, authentication, organization/branch hierarchy, and RBAC.
+
+**Phase 2:** Classification masters, Item Creation form, automatic code/description engine, and duplicate detection.
+
+**Phase 3:** Maker-checker workflow, versioning, audit trails, and notifications.
+
+**Phase 4:** SAP Business One adapter, mock SAP server, durable jobs, retry handling, and reconciliation.
+
+**Phase 5:** Bulk import/export, dashboards, reporting, and administration.
+
+**Phase 6:** Security testing, cross-branch isolation testing, performance testing, deployment documentation, and production-readiness review.
+
+At the end of each phase, provide runnable code, migrations, tests, and verification instructions. Do not generate placeholder APIs that return fake success responses.
+
+### 19. Acceptance Criteria
+
+The solution is accepted only when:
+
+1. A branch user cannot access unauthorized branch data by changing request parameters.
+2. A user cannot grant themselves additional privileges.
+3. A maker cannot approve their own item request.
+4. Concurrent requests cannot generate duplicate Item Codes.
+5. Item descriptions are generated consistently from configured rules.
+6. Approved items cannot be silently modified.
+7. SAP failures are visible, recoverable, and auditable.
+8. Retrying an integration does not create duplicate SAP items.
+9. Global item identity is separated from branch availability.
+10. Every critical workflow has automated tests.
+11. A developer can install and run the application using the documentation.
+12. The application never claims SAP creation succeeded unless the SAP interface confirms it.
+
+## 20. Configurable Item Code and Item Description Rule Engine
+
+### 20.1 Core Requirement
+
+Build a fully configurable, database-driven **Item Code Generation Engine** and **Item Description Generation Engine**.
+
+Neither engine may depend on hardcoded category rules or fixed field sequences in frontend or backend source code.
+
+Authorized administrators must be able to create, edit, validate, test, activate, deactivate, version, and roll back rule configurations through the web application.
+
+Changes to rules must take effect through controlled configuration activation without requiring application code changes or redeployment.
+
+The system must distinguish between:
+- Draft configuration.
+- Validated configuration.
+- Active configuration.
+- Retired configuration.
+- Historical configuration versions used by existing items.
+
+Only authorized users may manage rules. Rule editing, testing, approval, activation, and rollback must be controlled through RBAC and fully audited.
+
+### 20.2 Rule Administration Screens
+
+Create a dedicated **Item Code & Description Rule Builder** module with these screens:
+
+1. Rule Dashboard.
+2. Item Code Rule Builder.
+3. Item Description Rule Builder.
+4. Category-to-Rule Mapping.
+5. Classification Code Mapping.
+6. Sequence and Numbering Configuration.
+7. Rule Validation and Test Simulator.
+8. Rule Version History.
+9. Rule Approval and Activation.
+10. Rule Audit Log.
+11. Rollback and Recovery.
+
+Allow rules to be configured by:
+- Organization.
+- Item category.
+- Item type, where applicable.
+- Material or classification combination.
+- Branch, only when the business explicitly requires branch-specific numbering or descriptions.
+- Effective date and time.
+- Rule version.
+
+Support a global default rule with category-specific overrides. Define precedence explicitly, for example:
+
+**Approved category-specific rule → approved organization rule → system default rule.**
+
+Reject ambiguous matches rather than selecting an arbitrary rule.
+
+### 20.3 Configurable Item Code Builder
+
+Provide a visual builder where administrators can construct Item Code formats by arranging components.
+
+Supported component types:
+- Fixed text or prefix.
+- Category code.
+- Material code.
+- Type code.
+- Material Form code.
+- Process code.
+- Colour code.
+- Manufacturer code, when enabled.
+- Other approved classification codes.
+- Delimiter or separator.
+- Sequential number.
+- Optional check digit, if required.
+
+Example configurable pattern:
+
+`{CATEGORY}{MATERIAL}{TYPE}{FORM}{PROCESS}{COLOUR}{SEQUENCE:4}`
+
+Example output:
+
+`FGPPIMBK0001`
+
+The example is illustrative; administrators must be able to change component order, included dimensions, separator rules, sequence width, and applicable categories.
+
+For each component, provide configuration fields such as:
+- Component name.
+- Source classification or field.
+- Enabled/disabled.
+- Position/order.
+- Fixed value, if applicable.
+- Output format.
+- Padding length.
+- Case conversion.
+- Required/optional status.
+- Default behavior when a value is missing.
+- Validation rule.
+- Maximum output length.
+
+Provide conditional logic, such as:
+- If Category = FG, include Material, Type, Form, Process, and Colour.
+- If Category = RM, use the configured raw-material pattern.
+- If Category = SV, use a service-specific pattern.
+- If a component is optional, omit it according to the configured policy.
+- If a required component is missing, prevent code allocation and display a clear validation error.
+
+Support configurable sequence scope:
+- Global.
+- Organization.
+- Category.
+- Configured category combination.
+- Branch, only if explicitly enabled by governance.
+
+Sequence allocation must be concurrency-safe and transactionally protected. Use database sequences or atomic counter records with suitable unique constraints. Never use spreadsheet row numbers, browser counters, timestamps, or `MAX(code)+1` as the production sequence mechanism.
+
+Define sequence behavior when a rule changes:
+- Continue an existing sequence.
+- Start a new sequence namespace.
+- Require explicit administrator confirmation before changing sequence scope or reset behavior.
+
+Never reset or reuse issued identifiers without an approved migration policy. Preserve code uniqueness across all applicable scopes.
+
+### 20.4 Configurable Item Description Builder
+
+Create a visual description-template editor using draggable or selectable fields, literals, separators, and conditional segments.
+
+Allow administrators to define a different description template for every category.
+
+Support:
+- Field selection and ordering.
+- Literal text.
+- Separators such as hyphens, spaces, commas, and slashes.
+- Conditional fields.
+- Optional fields.
+- Prefixes and suffixes.
+- Text trimming and whitespace normalization.
+- Case conversion.
+- Controlled lookup values.
+- Date or numeric formatting when relevant.
+- Length limits.
+- Required fields.
+- Duplicate-description warnings.
+- Category-specific validation.
+- Preview and test data.
+
+Initial templates should be supplied as editable defaults:
+
+| Category | Default description pattern |
+|---|---|
+| FG | Material – Grade (if enabled) – Product Name – Specification – Colour |
+| SF | Material – Part Name – Dimensions – Revision (if enabled) |
+| RM | Material Name – Grade (if enabled) – Colour – Form – Size |
+| BO | Component Name – Manufacturer – Part Number – Rating/Size |
+| PM | Packaging Type – Material – Dimensions – Thickness/GSM |
+| MA | Equipment/Part Name – Manufacturer – Model/Part No. – Rating/Size |
+| CO | Item Name – Brand – Type/Grade – Size |
+| SV | Service Name – Scope – Equipment/Reference |
+| SC | Material/Part Name – Source/Grade – Colour – Form |
+| TR | Product Name – Brand/Manufacturer – Model/Part Number – Key Specification – Size/Rating |
+| CP | Equipment Name – Brand/Manufacturer – Model – Capacity/Rating |
+| MO | Tool Name – Part/Product – Tool Type – Cavity – Tool ID – Revision |
+| HF | Item Name – Brand – Type/Specification – Size/Capacity |
+
+These templates must be stored as configuration records, not embedded as immutable application logic.
+
+Where a category template references a field that is not enabled in the current form, administrators must either enable that field, map the segment to another field, or mark the segment optional. Do not silently generate incomplete or misleading descriptions.
+
+Example template:
+
+`{MATERIAL} - {SPECIFICATION} - {COLOUR} - {DIMENSION}`
+
+Example output:
+
+`PP - Injection Moulded Component - Black - 120 x 80 mm`
+
+The output must be generated from actual user selections and entered values, not from the example literals.
+
+When an optional field is blank, omit the field and its associated separator. Prevent double spaces, leading separators, trailing separators, and duplicate delimiters.
+
+### 20.5 Dynamic Form Configuration
+
+Provide a form configuration layer so administrators can define:
+- Fields shown for each category.
+- Required versus optional fields.
+- Field labels and help text.
+- Input type.
+- Dropdown master source.
+- Validation constraints.
+- Field order and grouping.
+- Whether a field participates in Item Code generation.
+- Whether a field participates in Item Description generation.
+- Whether the field is editable after submission.
+- Whether the field is editable after approval.
+
+For example, selecting FG may display the fields required by the FG code and description rules, while selecting RM displays the fields configured for RM.
+
+Do not force all categories to use the same form or the same required fields.
+
+Ensure every field referenced by an active rule is mapped to a valid field or classification source. Validate configuration changes before activation.
+
+### 20.6 Rule Simulator and Preview
+
+Before activation, provide a Rule Simulator that allows an administrator to:
+1. Select an item category.
+2. Select classification values.
+3. Enter sample specifications.
+4. Generate a preview Item Code.
+5. Generate a preview Item Description.
+6. See each output component and its source value.
+7. Identify missing required values.
+8. Check the output against length limits.
+9. Test boundary conditions and optional fields.
+10. Compare the active rule with the proposed rule.
+
+Show validation messages and explain exactly why a rule succeeds or fails.
+
+The simulator must not permanently allocate a production sequence number or create an SAP item.
+
+Provide automated test cases for every rule version before activation.
+
+### 20.7 Rule Versioning, Approval, and Activation
+
+Every configuration change must create a new immutable version.
+
+Store:
+- Rule ID.
+- Version number.
+- Organization and applicable scope.
+- Category and conditions.
+- Configuration payload.
+- Created by and created timestamp.
+- Change reason.
+- Validation result.
+- Approval decision.
+- Approved by and approval timestamp.
+- Effective-from timestamp.
+- Activation status.
+- Previous version reference.
+
+Support a maker-checker process for sensitive rule changes. The creator of a rule change must not approve their own change.
+
+Changes to Item Code format, sequence scope, or uniqueness behavior must require explicit elevated authorization and impact analysis.
+
+Changes to Item Description templates must identify the categories and records affected.
+
+Activation must be atomic: the application must never use a partially saved configuration.
+
+Provide controlled rollback by activating a previous valid version as a new audited configuration event. Do not delete historical versions.
+
+### 20.8 Existing Item Protection
+
+Rules must not silently rewrite existing item identifiers or approved descriptions.
+
+For every created item, preserve:
+- The generated Item Code.
+- The generated Item Description.
+- The Item Code rule ID and version.
+- The Description rule ID and version.
+- The relevant input snapshot.
+- The generation timestamp.
+- The rule configuration checksum or immutable version reference.
+
+When rules change:
+- New items use the applicable active version.
+- Existing drafts follow a configurable migration policy.
+- Submitted items retain their submitted snapshot unless formally returned for correction.
+- Approved items retain their approved values.
+- Already-created SAP ItemCodes must not be changed automatically.
+
+If a description correction is needed after approval, create a controlled change request with approval and SAP synchronization rules.
+
+### 20.9 Configuration Data Model
+
+Add suitable relational tables, such as:
+
+- `item_code_rules`
+- `item_code_rule_versions`
+- `item_code_rule_components`
+- `item_code_sequences`
+- `item_description_rules`
+- `item_description_rule_versions`
+- `item_description_rule_segments`
+- `item_category_rule_mappings`
+- `item_form_configurations`
+- `item_form_field_configurations`
+- `rule_validation_runs`
+- `rule_test_cases`
+- `rule_approval_decisions`
+- `rule_activation_history`
+
+The exact normalization can vary, but rule versions must be immutable, auditable, and safely queryable.
+
+Use JSONB only where appropriate for flexible configuration payloads; retain relational constraints for identity, scope, versioning, approval, and sequence integrity.
+
+Never execute arbitrary Python, JavaScript, SQL, shell commands, or user-supplied code from a rule configuration. Implement a safe, declarative rule language with a restricted set of operators, field references, conditions, and formatting functions.
+
+### 20.10 Rule Engine APIs
+
+Implement authorized, versioned endpoints such as:
+
+- `GET /api/v1/rules/item-codes`
+- `POST /api/v1/rules/item-codes`
+- `POST /api/v1/rules/item-codes/{id}/versions`
+- `POST /api/v1/rules/item-codes/{id}/validate`
+- `POST /api/v1/rules/item-codes/{id}/simulate`
+- `POST /api/v1/rules/item-codes/{id}/submit`
+- `POST /api/v1/rules/item-codes/{id}/approve`
+- `POST /api/v1/rules/item-codes/{id}/activate`
+- `GET /api/v1/rules/item-descriptions`
+- `POST /api/v1/rules/item-descriptions`
+- `POST /api/v1/rules/item-descriptions/{id}/versions`
+- `POST /api/v1/rules/item-descriptions/{id}/validate`
+- `POST /api/v1/rules/item-descriptions/{id}/simulate`
+- `POST /api/v1/rules/item-descriptions/{id}/activate`
+- `GET /api/v1/rules/history`
+
+These are suggested endpoint patterns; implement consistent REST conventions and appropriate authorization for each operation.
+
+The normal Item Creation workflow must call the backend rule engine for authoritative validation and output generation. Frontend previews may be used for responsiveness, but the backend remains the source of truth.
+
+### 20.11 Additional Acceptance Criteria
+
+The feature is complete only when:
+1. An authorized administrator can change the Item Code pattern without changing application source code.
+2. An authorized administrator can change category-specific Item Description templates without redeployment.
+3. Administrators can add new categories and map them to new rules.
+4. Required fields and classification mappings are validated before rule activation.
+5. Code generation remains unique under concurrent requests.
+6. Rule changes are versioned and auditable.
+7. Rule activation requires the configured approvals.
+8. Rollback is supported without deleting historical versions.
+9. Existing approved items are not silently rewritten.
+10. Branch-specific rules cannot override global rules unless explicitly permitted.
+11. A rule cannot execute arbitrary code or unrestricted database queries.
+12. The simulator can test proposed rules without consuming production sequence numbers.
+13. All rule management APIs enforce backend RBAC.
+14. Automated tests cover rule evaluation, conditional logic, missing values, sequence concurrency, version activation, rollback, and authorization.
+
+Implement these capabilities as a first-class configuration module, not as a collection of hardcoded if/else statements.
+
+
+
+Code	Type	TypeDisplay
+M	MFG	MFG (M)
+A	Assy	Assy (A)
+S	Subcontract	Subcontract (S)
+O	NA	NA (O)
+L	Mechnical	Mechnical (L)
+E	Electrical 	Electrical (E)
+U	Utilities and Facility	Utilities and Facility (U)
+P	Pneumatic	Pneumatic (P)
+H	Hydraulic	Hydraulic (H)
+C	Consumables	Consumables (C)
+I	IT and Office Items	IT and Office Items (I)
+
+
+
+Code	Material Form	FormDisplay
+PL	Pellets	Pellets (PL)
+SH	Sheet	Sheet (SH)
+RO	Roll	Roll (RO)
+PO	Powder	Powder (PO)
+BA	Bar	Bar (BA)
+TU	Tube	Tube (TU)
+RE	Regrind	Regrind (RE)
+GR	Granules	Granules (GR)
+FI	Film	Film (FI)
+FO	Foam	Foam (FO)
+BL	Block	Block (BL)
+WI	Wire	Wire (WI)
+LI	Liquid	Liquid (LI)
+OT	Other	Other (OT)
+
+
+Code	Process	ProcessDisplay
+IM	Injection Moulding	Injection Moulding (IM)
+BM	Blow Moulding	Blow Moulding (BM)
+EX	Extrusion	Extrusion (EX)
+CR	Corrugation	Corrugation (CR)
+PA	Plastic Assembly	Plastic Assembly (PA)
+SC	Sheet Metal Cutting	Sheet Metal Cutting (SC)
+SB	Sheet Metal Bending	Sheet Metal Bending (SB)
+SP	Stamping / Pressing	Stamping / Pressing (SP)
+WE	Welding	Welding (WE)
+MC	Machining	Machining (MC)
+ST	Surface Treatment	Surface Treatment (ST)
+PC	Painting / Coating	Painting / Coating (PC)
+SS	Sewing / Stitching	Sewing / Stitching (SS)
+NW	Non-Woven Conversion	Non-Woven Conversion (NW)
+SMT	SMT Assembly	SMT Assembly (SMT)
+TH	Through-Hole PCB Assembly	Through-Hole PCB Assembly (TH)
+EA	Electrical Assembly	Electrical Assembly (EA)
+FA	Final Product Assembly	Final Product Assembly (FA)
+CC	Concrete Casting	Concrete Casting (CC)
+TI	Testing / Inspection	Testing / Inspection (TI)
+SU	Subcontracted Processing	Subcontracted Processing (SU)
+NA	Not Applicable	Not Applicable (NA)
+AS	Additive Manufacturing / 3D Printing	Additive Manufacturing / 3D Printing (AS)
+AN	Anodizing	Anodizing (AN)
+PL	Plating	Plating (PL)
+HT	Heat Treatment	Heat Treatment (HT)
+LA	Laser Cutting	Laser Cutting (LA)
+GR	Grinding	Grinding (GR)
+UL	Ultrasonic Welding	Ultrasonic Welding (UL)
+PA	Pad Printing	Pad Printing (PA)
+
+
+Code	CategoryDesc	Dropdown Display
+FG	Finished Goods	Finished Goods (FG)
+SF	Semi-Finished Goods	Semi-Finished Goods (SF)
+RM	Raw Materials	Raw Materials (RM)
+BO	Bought-Out Components	Bought-Out Components (BO)
+PM	Packaging Materials	Packaging Materials (PM)
+MA	Maintenance / Spares	Maintenance / Spares (MA)
+CO	Consumables	Consumables (CO)
+SV	Services	Services (SV)
+SC	Runner / Regrind / Scrap	Runner / Regrind / Scrap (SC)
+TR	Trading Item	Trading Item (TR)
+CP	Capital Equipment	Capital Equipment (CP)
+MO	Moulds, Dies and Tooling	Moulds, Dies and Tooling (MO)
+HF	Housekeeping and Facility Supplies	Housekeeping and Facility Supplies (HF)
+
+
+Code	Material	MaterialDisplay
+PP	PP – Polypropylene	PP – Polypropylene (PP)
+AB	ABS – Acrylonitrile Butadiene Styrene	AB – ABS – Acrylonitrile Butadiene Styrene (AB)
+PC	PC – Polycarbonate	PC – Polycarbonate (PC)
+PA	PC-ABS	PA – PC-ABS (PA)
+HP	HIPS	HP – HIPS (HP)
+HD	HDPE	HD – HDPE (HD)
+LD	LDPE	LD – LDPE (LD)
+PV	PVC	PV – PVC (PV)
+P6	PA6 – Nylon	P6 – PA6 – Nylon (P6)
+P7	PA66 – Nylon	P7 – PA66 – Nylon (P7)
+PM	POM – Acetal	PM – POM – Acetal (PM)
+TP	TPE – Thermoplastic Elastomer	TP – TPE – Thermoplastic Elastomer (TP)
+ER	EPDM Rubber	ER – EPDM Rubber (ER)
+SS	Stainless Steel	SS – Stainless Steel (SS)
+MS	Mild Steel	MS – Mild Steel (MS)
+AL	Aluminium	AL – Aluminium (AL)
+CU	Copper	CU – Copper (CU)
+CO	Concrete	CO – Concrete (CO)
+WF	Woven Fabric	WF – Woven Fabric (WF)
+NF	Non-Woven Fabric	NF – Non-Woven Fabric (NF)
+PB	Electronic-Grade PCB Material	PB – Electronic-Grade PCB Material (PB)
+BR	Brass	BR – Brass (BR)
+SR	Silicone Rubber	SR – Silicone Rubber (SR)
+OT	Other Approved Material	OT – Other Approved Material (OT)
+CS	Carbon Steel	CS – Carbon Steel (CS)
+GS	Galvanized Steel	GS – Galvanized Steel (GS)
+ZN	Zinc	ZN – Zinc (ZN)
+CI	Cast Iron	CI – Cast Iron (CI)
+PU	Polyurethane	PU – Polyurethane (PU)
+PM	Acrylic / PMMA	PM – Acrylic / PMMA (PM)
+FR	Fibreglass-Reinforced Plastic	FR – Fibreglass-Reinforced Plastic (FR)
+
+
+
+
+Code	Colour	ColourDisplay
+NT	Natural	Natural (NT)
+BK	Black	Black (BK)
+WH	White	White (WH)
+GY	Grey	Grey (GY)
+LG	Light Grey	Light Grey (LG)
+BL	Blue	Blue (BL)
+RD	Red	Red (RD)
+GN	Green	Green (GN)
+YE	Yellow	Yellow (YE)
+OR	Orange	Orange (OR)
+BN	Brown	Brown (BN)
+TR	Transparent	Transparent (TR)
+TL	Translucent	Translucent (TL)
+SI	Silver	Silver (SI)
+CS	Customer-Specific	Customer-Specific (CS)
+NA	Not Applicable	Not Applicable (NA)
+CL	Clear	Clear (CL)
+IV	Ivory	Ivory (IV)
+BE	Beige	Beige (BE)
+PU	Purple	Purple (PU)
+PK	Pink	Pink (PK)
+GO	Gold	Gold (GO)
+MC	Multicolour	Multicolour (MC)
+ 
+ 
+ Code	Manufacturer / Brand
+AA	MFG001
+AB	MFG002
+AC	MFG003
+AD	MFG004
+AE	MFG005
+AF	MFG006
+AG	MFG007
+AH	MFG008
+AI	MFG009
+AJ	MFG010
+AK	MFG011
+AL	MFG012
+AM	MFG013
+AN	MFG014
+AO	MFG015
+
+
+
+Category	Material	Type	Material Form	Process	Colour	Dimension (User Input)	Manufacturer / Brand (Master Dropdown)	Part / Model Number (User Input)	Rating / Size / Thickness-GSM / Cavity / Capacity (User Input)	Specification / Key Specification / Type / Item Name (User Input)	Item Code & Description (Auto)
+Raw Materials (RM)	PA – PC-ABS (PA)	NA (O)	Powder (PO)	Extrusion (EX)	Light Grey (LG)	12MM	MFG005	B0010		Item Name	"Item Code: RMPAOPOEXLG0001
+Description: PC-ABS – Item Name – Light Grey – Powder"
+Finished Goods (FG)	HD – HDPE (HD)	MFG (M)		Corrugation (CR)	Grey (GY)		MFG006	DIX001		Item Name	"Item Code: FGHDMCRGY0002
+Description: HDPE – Item Name – Grey"
+Maintenance / Spares (MA)	PA – PC-ABS (PA)	Mechnical (L)			Blue (BL)	5					"Item Code: MAPALBL0003
+Description: "
+
+
+Start by producing the architecture, entity-relationship model, RBAC matrix, API contract, and repository structure. Then implement Phase 1 completely before moving to the next phase. Clearly state assumptions and ask only essential questions that block implementation.

@@ -1,0 +1,6 @@
+{
+  "name": "Kosh Global Item Creation System",
+  "description": "Enterprise-grade Global Item Master, Configurable Rule Engine, Maker-Checker Approvals, Multi-Branch RBAC, and SAP B1 HANA Integration for Kosh Innovations",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
